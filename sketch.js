@@ -2,7 +2,10 @@ const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 const arr = ['I','Z','L','J','S','O','T'];
 context.scale(15,15);
+
 let score = 0;
+const scoreTag = document.getElementById("score");
+scoreTag.innerText = "score :" +score; 
 
 function createPiece(type){
 	let matrix;
@@ -133,6 +136,7 @@ function rowRemove(){
 		}
 		if(fill){
 			score++;
+			scoreTag.innerText = "score :" +score; 
 			arena.splice(i,1);
 			arena.splice(0,0,new Array(19).fill(0));
 		}
